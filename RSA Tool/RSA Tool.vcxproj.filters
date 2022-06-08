@@ -1,17 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
+    <Filter Include="Main">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Encryptor">
+      <UniqueIdentifier>{02fa1473-333f-4a1e-b37e-9a2c0715ecd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{02517c6a-66f4-45a3-a8df-304425a05379}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{8a09e3d0-89a3-4ef3-9e6f-c5cd7cb7bc4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files">
+      <UniqueIdentifier>{3a54d06b-c2f8-4701-a5a3-75ac89f8d415}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CmdParser">
+      <UniqueIdentifier>{cf103d1e-e466-4569-a5a1-972ef86209f1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Encryptor.cpp">
+      <Filter>Encryptor</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilities.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyGenerator.cpp">
+      <Filter>Encryptor</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdParser.cpp">
+      <Filter>CmdParser</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Encryptor.h">
+      <Filter>Encryptor</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyPairData.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyGenerator.h">
+      <Filter>Encryptor</Filter>
+    </ClInclude>
+    <ClInclude Include="KeySet.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdParser.h">
+      <Filter>CmdParser</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -123,6 +123,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CmdParser.cpp" />
+    <ClCompile Include="Encryptor.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="KeyGenerator.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Utilities.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CmdParser.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Encryptor.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="KeyGenerator.h" />
+    <ClInclude Include="KeyPairData.h" />
+    <ClInclude Include="KeySet.h" />
+    <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
