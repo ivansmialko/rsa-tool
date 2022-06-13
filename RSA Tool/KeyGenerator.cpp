@@ -2,23 +2,20 @@
 #include "Utilities.h"
 #include "Constants.h"
 
-KeySet KeyGenerator::generateRandomKeys()
+KeySet KeyGenerator::generateRandomKeys(long int in_p, long int in_q)
 {
-	long int p = 3557;
-	long int q = 2579;
+	long int n = in_p * in_q;
 
-	long int public_key = p * q;
-
-	long int phi = Utilities::etf(public_key);
-	int private_key = Utilities::modi(PUBLIC_E, phi);
+	long int phi = Utilities::etf(n);
+	long long int private_key = Utilities::modi(PUBLIC_E, phi);
 
 	KeyPairData public_key_pair;
 	public_key_pair.key = PUBLIC_E;
-	public_key_pair.public_m = public_key;
+	public_key_pair.public_m = n;
 
 	KeyPairData private_key_pair;
-	private_key_pair.key = p;
-	private_key_pair.public_m = public_key;
+	private_key_pair.key = private_key;
+	private_key_pair.public_m = n;
 
 	KeySet key_set;
 	key_set.public_keypair = public_key_pair;

@@ -75,6 +75,29 @@ int main(int in_argc, char** in_argv)
 	if(!cmd_options.isOptionExist(OPTION_ACTION))
 		return 0;
 
+	std::string action = cmd_options.getOption(OPTION_ACTION);
+
+	if (action == "generate")
+	{
+
+		if (!(cmd_options.isOptionExist(OPTION_GENERATE_KEYS_Q_VALUE) && cmd_options.isOptionExist(OPTION_GENERATE_KEYS_P_VALUE)))
+		{
+			std::cout << "No input p and q numbers. Please use external prime number generator, than pass one number to -kp parameter, and another to -kq" << std::endl;
+			return 0;
+		}
+
+		KeyGenerator keygen;
+		KeySet keyset = keygen.generateRandomKeys(atoi(cmd_options.getOption(OPTION_GENERATE_KEYS_P_VALUE).c_str()), atoi(cmd_options.getOption(OPTION_GENERATE_KEYS_Q_VALUE).c_str()));
+
+		std::cout << "Your public key: {" << keyset.public_keypair.key << ";" << keyset.public_keypair.public_m << "}" << std::endl;
+		std::cout << "Your private key: {" << keyset.private_keypair.key << ";" << keyset.private_keypair.public_m << "}" << std::endl;
+
+		std::cout << "Warning:\n1. DO NOT DISTRIBUTE PRIVATE KEY!!!.\n2. DO NOT DISTRIBUTE Q NUMBER. DESTROY IT!!!" << std::endl;
+		std::cout << "Keys successfully generated" << std::endl;
+		system("pause");
+		return 0;
+	}
+
 	//Parse keys
 	std::string keypair_string;
 	if (cmd_options.isOptionExist(OPTION_KEY))
@@ -111,7 +134,6 @@ int main(int in_argc, char** in_argv)
 
 	//Parse input and do actions
 	std::vector<char> processed_data;
-	std::string action = cmd_options.getOption(OPTION_ACTION);
 	if (action == "encrypt")
 	{
 		processed_data = Encryptor::process(working_data, keypair_input, true);

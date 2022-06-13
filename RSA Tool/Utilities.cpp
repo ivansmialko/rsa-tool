@@ -1,6 +1,8 @@
 #include "Utilities.h"
 #include <stdint.h>
 #include <cmath>
+#include <random>
+#include <iostream>
 
 //Source code: https://uk.wikipedia.org/wiki/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F_%D0%95%D0%B9%D0%BB%D0%B5%D1%80%D0%B0
 long int Utilities::etf(long int in_number)
@@ -17,7 +19,7 @@ long int Utilities::etf(long int in_number)
 	return --in_number ? in_number * ret : ret;
 }
 //Source code: https://www.geeksforgeeks.org/euclidean-algorithms-basic-and-extended/
-int Utilities::eea(int in_a, int in_b, int* in_x, int* in_y)
+long long int Utilities::eea(long long int in_a, long long int in_b, long long int* in_x, long long int* in_y)
 {
 	// Base Case
 	if (in_a == 0)
@@ -27,8 +29,8 @@ int Utilities::eea(int in_a, int in_b, int* in_x, int* in_y)
 	}
 
 	// To store results of recursive call
-	int x1, y1;
-	int gcd = eea(in_b % in_a, in_a, &x1, &y1);
+	long long int x1, y1;
+	long long int gcd = eea(in_b % in_a, in_a, &x1, &y1);
 
 	// Update x and y using results of recursive
 	// call
@@ -38,15 +40,13 @@ int Utilities::eea(int in_a, int in_b, int* in_x, int* in_y)
 	return gcd;
 }
 
-int Utilities::modi(int in_a, int in_m)
+long long int Utilities::modi(long long int in_a, long long int in_m)
 {
-	int x, y;
-	int g = eea(in_a, in_m, &x, &y);
+	long long int x, y;
+	eea(in_a, in_m, &x, &y);
 	
-	if (g != 1)
-		return 0;
-
-	return (x % in_m + in_m) % in_m;
+	x = (x % in_m + in_m) % in_m;
+	return x;
 }
 
 long unsigned int Utilities::gcd(long unsigned int in_n1, long unsigned int in_n2)
@@ -107,6 +107,15 @@ std::vector<std::string> Utilities::split(const std::string & in_string, char in
 	output.push_back(in_string.substr(prev_pos, pos - prev_pos));
 
 	return output;
+}
+
+unsigned long long Utilities::getRandomNumber(long unsigned int in_min, long unsigned int in_max)
+{
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> distr(in_min, in_max);
+
+	return distr(gen);
 }
 
 unsigned long long int Utilities::binpow(unsigned long long int a, unsigned long long int e, unsigned long long int mod /*= LLONG_MAX*/)

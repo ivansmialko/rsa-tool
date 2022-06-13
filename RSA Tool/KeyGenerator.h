@@ -5,5 +5,5 @@
 class KeyGenerator
 {
 public:
-	static KeySet generateRandomKeys();
+	static KeySet generateRandomKeys(long int in_p, long int in_q);
 };

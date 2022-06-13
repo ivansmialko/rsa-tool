@@ -10,10 +10,10 @@ public:
 	static long int etf(long int in_number);
 
 	//Extended Euclidean algorithm
-	static int eea(int in_a, int in_b, int* in_x, int* in_y);
+	static long long int eea(long long int in_a, long long int in_b, long long int* in_x, long long int* in_y);
 
 	//Module inverse of a by module of m
-	static int modi(int in_a, int in_m);
+	static long long int modi(long long int in_a, long long int in_m);
 
 	//Greatest common divisor
 	static long unsigned int gcd(long unsigned int in_n1, long unsigned int in_n2);
@@ -30,5 +30,10 @@ public:
 	//Split string by separator
 	static std::vector<std::string> split(const std::string & in_string, char in_separator);
 
+	//Random number
+	static unsigned long long getRandomNumber(long unsigned int in_min, long unsigned int in_max);
+
+	//Eratosthenes sieve
+	static unsigned long long getRandomSimpleNumber(long unsigned int in_min, long unsigned int in_max);
 
 };
